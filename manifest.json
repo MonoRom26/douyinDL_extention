@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Douyin Video Downloader",
+  "version": "1.1.0",
+  "description": "Hover over a Douyin video to reveal a download button, or download every video on a profile in one click.",
+  "permissions": ["downloads", "tabs"],
+  "host_permissions": ["*://*.douyin.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.douyin.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.svg", "icon.png"],
+      "matches": ["*://*.douyin.com/*"]
+    }
+  ]
+}
